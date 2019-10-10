@@ -5,12 +5,12 @@ class UnionFind():
         self.group = {}  # dict, key: group's leader , value: group
 
     def connect(self, member1, member2):
-        leader1 = self.leader.get(member1)  # if a is not in self.leader, would get None.
+        leader1 = self.leader.get(member1)  # if member1 is not in self.leader, would get None.
         leader2 = self.leader.get(member2)
 
         if leader1 is not None:
             if leader2 is not None:
-                if leader1 == leader2:  # a and b are in the same group already.
+                if leader1 == leader2:  # member1 and member2 are in the same group already.
                     return
                 
                 group1 = self.group[leader1]
