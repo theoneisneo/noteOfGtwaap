@@ -3,8 +3,15 @@ class UnionFind():
         # the group below is a "set".
         self.leader = {}  # dict, key: group member, value: group's leader
         self.group = {}  # dict, key: group's leader , value: group
-
-    def connect(self, member1, member2):
+        
+    def make_set(self, member):
+        if member not in self.leader:
+            self.leader[member] = member
+            
+    def find_set(self, member):
+        return self.leader.get(member)
+    
+    def union(self, member1, member2):
         leader1 = self.leader.get(member1)  # if member1 is not in self.leader, would get None.
         leader2 = self.leader.get(member2)
 
